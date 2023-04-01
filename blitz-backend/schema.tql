@@ -1,0 +1,81 @@
+define
+    id sub attribute,
+        value string;
+
+    refId sub attribute,
+        value string;
+
+    title sub attribute,
+        value string;
+
+    inputType sub attribute,
+        value string;
+
+    label sub attribute,
+        value string;
+
+    variable sub attribute,
+        value string;
+
+    options sub attribute,
+        value string;
+
+    typeof sub attribute,
+        value string;
+
+    displayType sub attribute,
+        value string;
+
+    children sub relation,
+        relates child,
+        relates parent;
+
+     sub relation,
+        relates parent,
+        relates child;
+
+    frame sub entity,
+        plays children:parent,
+        plays children:child,
+        plays referenced-instance:parent,
+        owns id,
+        owns title,
+        owns typeof;
+
+    layout sub entity,
+        plays children:parent,
+        plays children:child,
+        plays referenced-instance:parent,
+        owns id,
+        owns title,
+        owns displayType,
+        owns typeof;
+
+    component sub entity,
+        plays children:child,
+        plays referenced-instance:child,
+        owns id,
+        owns title,
+        owns typeof;
+
+    element sub entity,
+        plays children:child,
+        plays referenced-instance:child,
+        owns id,
+        owns typeof;
+
+    titleElement sub element,
+        owns title;
+    
+    refElement sub element,
+        owns refId;
+    
+    inputElement sub element,
+        owns inputType,
+        owns label,
+        owns variable;
+
+    selectorElement sub element,
+        owns label,
+        owns variable,
+        owns options;

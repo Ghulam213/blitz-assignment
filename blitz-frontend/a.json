@@ -1,0 +1,60 @@
+{
+    "id": "page0",
+    "type": "page",
+    "children": [
+        {
+            "content": {
+                "type": "title",
+                "value": "Who are you"
+            }
+        },
+        {
+            "content": {
+                "type": "input",
+                "label": "name:",
+                "variable": "{name}"
+            }
+        },
+        {
+            "content": {
+                "type": "ref",
+                "id": "comp-address"
+            }
+        },
+        {
+            "content": {
+                "type": "ref",
+                "id": "comp-fName"
+            }
+        },
+        {
+            "content": {
+                "type": "block"
+            },
+            "children": [
+                {
+                    "content": {
+                        "type": "selector",
+                        "label": "your university:",
+                        "options": [
+                            "A",
+                            "B"
+                        ],
+                        "variable": "university"
+                    }
+                },
+                {
+                    "content": {
+                        "type": "selector",
+                        "label": "years of experience:",
+                        "options": [
+                            "A",
+                            "B"
+                        ],
+                        "variable": "years-of-exp"
+                    }
+                }
+            ]
+        }
+    ]
+}

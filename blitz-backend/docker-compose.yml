@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  db:
+      image: vaticle/typedb:latest
+      restart: always
+      ports:
+        - "1729:1729"
