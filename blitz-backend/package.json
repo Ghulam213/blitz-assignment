@@ -3,8 +3,15 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "start": "ts-node index.ts"
+  },
   "dependencies": {
-    "@blitznocode/blitz-orm": "^0.0.46",
+    "@blitznocode/blitz-orm": "^0.0.39",
+    "ts-node": "^10.9.1",
     "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "@types/uuid": "^9.0.1"
   }
 }

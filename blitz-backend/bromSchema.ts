@@ -46,14 +46,6 @@ export const childInChildrenRelation: LinkField = {
   target: "role"
 }
 
-export const childInReferencedInstanceRelation: LinkField = {
-  path: "children",
-  cardinality: "MANY",
-  relation: "referenced-instance",
-  plays: "child",
-  target: "role"
-}
-
 export const schema: BormSchema = {
   entities: {
     frame: {
@@ -66,23 +58,16 @@ export const schema: BormSchema = {
       ],
       linkFields: [
         {
-          path: "frame",
+          path: "children",
           cardinality: "ONE",
           relation: "children",
           plays: "parent",
           target: "role"
         },
         {...childInChildrenRelation},
-        {
-          path: "frame",
-          cardinality: "ONE",
-          relation: "referenced-instance",
-          plays: "parent",
-          target: "role"
-        },
       ]
     },
-    layouts: {
+    layout: {
       idFields: ["id"],
       defaultDBConnector: { id: 'default', path: 'layout' },
       dataFields: [
@@ -105,13 +90,6 @@ export const schema: BormSchema = {
           target: "role"
         },
         {...childInChildrenRelation},
-        {
-          path: "layout",
-          cardinality: "ONE",
-          relation: "referenced-instance",
-          plays: "parent",
-          target: "role"
-        },
       ]
     },
     component: {
@@ -124,7 +102,6 @@ export const schema: BormSchema = {
       ],
       linkFields: [
         {...childInChildrenRelation},
-        {...childInReferencedInstanceRelation}
       ]
     },
     element: {
@@ -136,7 +113,6 @@ export const schema: BormSchema = {
       ],
       linkFields: [
         {...childInChildrenRelation},
-        {...childInReferencedInstanceRelation}
       ]
     },
     titleElement: {
@@ -197,28 +173,7 @@ export const schema: BormSchema = {
     children: {
       idFields: ["id"],
       defaultDBConnector: { id: 'default', path: 'children' },
-      dataFields: [{...id}],
-      roles: {
-        parent: {
-          cardinality: "ONE",
-        },
-        child: {
-          cardinality: "MANY",
-        }
-      }
-    },
-    'referenced-instance': {
-      idFields: ["id"],
-      defaultDBConnector: { id: 'default', path: 'children' },
-      dataFields: [{...id}],
-      roles: {
-        parent: {
-          cardinality: "ONE",
-        },
-        child: {
-          cardinality: "MANY",
-        }
-      }
+      dataFields: [{...id}]
     },
   }
 };

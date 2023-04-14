@@ -30,14 +30,9 @@ define
         relates child,
         relates parent;
 
-     sub relation,
-        relates parent,
-        relates child;
-
     frame sub entity,
         plays children:parent,
         plays children:child,
-        plays referenced-instance:parent,
         owns id,
         owns title,
         owns typeof;
@@ -45,7 +40,6 @@ define
     layout sub entity,
         plays children:parent,
         plays children:child,
-        plays referenced-instance:parent,
         owns id,
         owns title,
         owns displayType,
@@ -53,14 +47,12 @@ define
 
     component sub entity,
         plays children:child,
-        plays referenced-instance:child,
         owns id,
         owns title,
         owns typeof;
 
     element sub entity,
         plays children:child,
-        plays referenced-instance:child,
         owns id,
         owns typeof;
 
